@@ -3,9 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Curved Sounds</title>
-
 <style>
 :root{
     --bg1:#18365a;
@@ -21,9 +19,7 @@
     --coffee:#ffdd00;
 }
 
-*{
-    box-sizing:border-box;
-}
+*{box-sizing:border-box;}
 
 body{
     margin:0;
@@ -35,7 +31,7 @@ body{
 
 .wrap{
     max-width:980px;
-    margin:auto;
+    margin:0 auto;
 }
 
 .badge{
@@ -63,26 +59,26 @@ h1{
     margin-bottom:24px;
 }
 
-/* Notice boxes */
-
-.beta{
-    background:#4a3300;
-    border:1px solid var(--amber);
-    color:#fde68a;
+.notice,
+.feedback,
+.support,
+.about{
     padding:18px;
     border-radius:18px;
     margin:22px 0;
     line-height:1.6;
 }
 
+.notice{
+    background:#4a3300;
+    border:1px solid var(--amber);
+    color:#fde68a;
+}
+
 .feedback{
     background:#06293a;
     border:1px solid var(--cyan);
     color:#dff7ff;
-    padding:18px;
-    border-radius:18px;
-    margin:22px 0;
-    line-height:1.6;
 }
 
 .feedback a{
@@ -90,38 +86,27 @@ h1{
     font-weight:900;
 }
 
-/* Support box */
+.about{
+    background:#0b1220;
+    border:1px solid var(--line);
+    color:#dbeafe;
+}
 
 .support{
     background:#111827dd;
     border:1px solid #facc15;
     color:#fff7cc;
-    padding:22px;
-    border-radius:20px;
-    margin:24px 0 34px;
 }
 
-.support-inner{
-    display:flex;
-    gap:24px;
-    align-items:center;
-    justify-content:space-between;
-}
-
-.support-text{
-    flex:1;
-    min-width:0;
-}
-
-.support h2{
+.support h2,
+.about h2{
     margin:0 0 10px;
     color:#ffef8a;
 }
 
-.support p{
-    line-height:1.6;
-    color:#f8f2c0;
-    margin:0 0 16px;
+.support p,
+.about p{
+    margin:0 0 14px;
 }
 
 .coffee-btn{
@@ -135,18 +120,16 @@ h1{
     box-shadow:0 8px 22px #0006;
 }
 
-.coffee-btn:hover{
-    filter:brightness(1.05);
-}
+.coffee-btn:hover{filter:brightness(1.05);}
 
 .qrbox{
+    margin-top:18px;
     text-align:center;
-    flex:0 0 190px;
 }
 
 .qrbox img{
-    max-width:180px;
-    width:100%;
+    width:180px;
+    max-width:100%;
     border-radius:18px;
     background:white;
     padding:8px;
@@ -158,8 +141,6 @@ h1{
     color:#fef3c7;
     font-size:13px;
 }
-
-/* Sections */
 
 .section-title{
     margin:36px 0 10px;
@@ -173,12 +154,10 @@ h1{
     line-height:1.5;
 }
 
-/* Simple vertical list */
-
 .tools-list{
     display:flex;
     flex-direction:column;
-    gap:18px;
+    gap:16px;
 }
 
 .card{
@@ -211,9 +190,7 @@ h1{
     font-weight:900;
 }
 
-.tool-link:hover{
-    filter:brightness(1.12);
-}
+.tool-link:hover{filter:brightness(1.12);}
 
 .tagrow{
     display:flex;
@@ -241,38 +218,16 @@ h1{
 }
 
 @media(max-width:760px){
-    h1{
-        font-size:36px;
-    }
-
-    body{
-        padding:24px 14px;
-    }
-
-    .support-inner{
-        flex-direction:column;
-        align-items:flex-start;
-    }
-
-    .qrbox{
-        width:100%;
-        flex:auto;
-    }
-
-    .qrbox img{
-        max-width:170px;
-    }
+    h1{font-size:36px;}
+    body{padding:24px 14px;}
+    .qrbox img{width:165px;}
 }
 </style>
 </head>
-
 <body>
-
 <div class="wrap">
 
-    <div class="badge">
-        🎼 Curved Sounds · Music Tools & Creative Experiments
-    </div>
+    <div class="badge">🎼 Curved Sounds · Music Tools & Creative Experiments</div>
 
     <h1>Curved Sounds</h1>
 
@@ -281,58 +236,173 @@ h1{
         Built for experimenting with chords, melodies, basslines, drums and creative workflows.
     </div>
 
-    <div class="beta">
-        <b>🇫🇮 Beta-testausilmoitus</b><br>
+    <div class="notice">
+        <strong>🇫🇮 Beta-testausilmoitus</strong><br>
         Kaikki tällä sivustolla olevat työkalut ovat tällä hetkellä beta-testivaiheessa.
         Työkaluissa voi esiintyä virheitä, puutteita, epätarkkuuksia tai odottamatonta toimintaa.
-
         <br><br>
-
-        <b>🇬🇧 Beta Testing Notice</b><br>
+        <strong>🇬🇧 Beta Testing Notice</strong><br>
         All tools available on this website are currently in beta testing.
         Bugs, inaccuracies, missing features and unexpected behavior may occur.
     </div>
 
     <div class="feedback">
-        <b>🇫🇮 Palaute</b><br>
-        Voit lähettää palautetta sivustosta, työkaluista, virheistä tai kehitysideoista osoitteeseen:
-        <br>
-        <a href="mailto:jaycurve.music@gmail.com?subject=Curved Sounds feedback">
-            jaycurve.music@gmail.com
-        </a>
-
+        <strong>🇫🇮 Palaute</strong><br>
+        Voit lähettää palautetta sivustosta, työkaluista, virheistä tai kehitysideoista osoitteeseen:<br>
+        <a href="mailto:jaycurve.music@gmail.com?subject=Curved%20Sounds%20feedback">jaycurve.music@gmail.com</a>
         <br><br>
-
-        <b>🇬🇧 Feedback</b><br>
-        You can send feedback, bug reports or feature ideas about this website and its tools to:
-        <br>
-        <a href="mailto:jaycurve.music@gmail.com?subject=Curved Sounds feedback">
-            jaycurve.music@gmail.com
-        </a>
+        <strong>🇬🇧 Feedback</strong><br>
+        You can send feedback, bug reports or feature ideas about this website and its tools to:<br>
+        <a href="mailto:jaycurve.music@gmail.com?subject=Curved%20Sounds%20feedback">jaycurve.music@gmail.com</a>
     </div>
 
     <div class="support">
-        <div class="support-inner">
+        <h2>☕ Support Curved Sounds</h2>
+        <p>
+            Curved Sounds tools are free to use. If these tools help you learn,
+            create music or find new ideas, you can support future development
+            by buying me a coffee.
+        </p>
+        <p>
+            Your support helps keep these music theory, songwriting and MIDI tools
+            freely available for musicians, producers and creative learners.
+        </p>
+        <a class="coffee-btn" href="https://buymeacoffee.com/liwgdnxqyw" target="_blank" rel="noopener noreferrer">☕ Buy Me a Coffee</a>
+        <div class="qrbox">
+            <a href="https://buymeacoffee.com/liwgdnxqyw" target="_blank" rel="noopener noreferrer">
+                <img src="bmc_qr.png" alt="Buy Me a Coffee QR code for Curved Sounds">
+            </a>
+            <div>Scan to support Curved Sounds</div>
+        </div>
+    </div>
 
-            <div class="support-text">
-                <h2>☕ Support Curved Sounds</h2>
+    <div class="about">
+        <h2>About Curved Sounds</h2>
+        <p>
+            Curved Sounds is created by Jay Curve, an ambient soundscape artist who wants
+            to make music theory, songwriting and MIDI tools easy to access and free to use.
+        </p>
+        <p>
+            The goal is to help musicians, producers and creative learners explore chords,
+            melodies, basslines, drums and new musical ideas without barriers.
+        </p>
+    </div>
 
-                <p>
-                    Curved Sounds tools are free to use. If these tools help you learn,
-                    create music or find new ideas, you can support future development
-                    by buying me a coffee.
-                </p>
+    <h2 class="section-title">🎛 MIDI & Production Tools</h2>
+    <div class="section-desc">
+        Tools for generating MIDI sketches, chord progressions, basslines, arpeggios, drums and melodies for DAW use.
+    </div>
 
-                <p>
-                    Your support helps keep these music theory, songwriting and MIDI tools
-                    freely available for musicians, producers and creative learners.
-                </p>
-
-                <a class="coffee-btn" href="https://buymeacoffee.com/liwgdnxqyw" target="_blank" rel="noopener noreferrer">
-                    ☕ Buy Me a Coffee
-                </a>
+    <div class="tools-list">
+        <div class="card">
+            <h3>🎛 Multi MIDI Generator</h3>
+            <div class="tagrow">
+                <span class="tag">Chords</span>
+                <span class="tag">Bass</span>
+                <span class="tag">Arp</span>
+                <span class="tag">Lead</span>
+                <span class="tag">Drums</span>
             </div>
+            <p>Generate genre-based MIDI ideas with separate chords, bass, arp, lead/melody and drum tracks. Export full MIDI or individual lanes.</p>
+            <a class="tool-link" href="multi_midi_generator.html">Open Multi MIDI Generator</a>
+        </div>
 
-            <div class="qrbox">
-                <a href="https://buymeacoffee.com/liwgdnxqyw" target="_blank" rel="noopener noreferrer">
-                    <img src="bmc_qr.png" alt="Buy Me a Coffee QR code">
+        <div class="card">
+            <h3>🎛 MIDI Chord Generator Tutor</h3>
+            <div class="tagrow">
+                <span class="tag">MIDI</span>
+                <span class="tag">Chords</span>
+                <span class="tag">Drums</span>
+                <span class="tag">Learning</span>
+            </div>
+            <p>Learn MIDI basics and generate 4 or 8 bar MIDI chord and drum patterns. Suitable for quick DAW sketching.</p>
+            <a class="tool-link" href="midi_chord_generator_tutor.html">Open MIDI Chord Generator</a>
+        </div>
+    </div>
+
+    <h2 class="section-title">🎼 Songwriting & Music Theory</h2>
+    <div class="section-desc">General music theory and songwriting tools for chords, scales, keys and harmonic ideas.</div>
+
+    <div class="tools-list">
+        <div class="card">
+            <h3>🎼 Songwriter Toolkit</h3>
+            <div class="tagrow">
+                <span class="tag">Songwriting</span>
+                <span class="tag">Chords</span>
+                <span class="tag">Scales</span>
+                <span class="tag">Ideas</span>
+            </div>
+            <p>Music theory, songwriting ideas, chord suggestions, scale helpers and creative composition support.</p>
+            <a class="tool-link" href="songwriter-toolkit.html">Open Songwriter Toolkit</a>
+        </div>
+
+        <div class="card">
+            <h3>⭕ Circle of Fifths</h3>
+            <div class="tagrow">
+                <span class="tag">Keys</span>
+                <span class="tag">Chords</span>
+                <span class="tag">Theory</span>
+            </div>
+            <p>Quick circle of fifths helper for keys, neighboring keys, chords and common songwriting progressions.</p>
+            <a class="tool-link" href="circle-of-fifths.html">Open Circle of Fifths</a>
+        </div>
+
+        <div class="card">
+            <h3>🎹 Piano Theory Tutor</h3>
+            <div class="tagrow">
+                <span class="tag">Piano</span>
+                <span class="tag">Scales</span>
+                <span class="tag">Chords</span>
+            </div>
+            <p>Keyboard helper for scales, chords, intervals, scale degrees and practice ideas.</p>
+            <a class="tool-link" href="piano_theory_tutor.html">Open Piano Theory Tutor</a>
+        </div>
+    </div>
+
+    <h2 class="section-title">🎸 Guitar & Bass Tools</h2>
+    <div class="section-desc">Fretboard, tuning and instrument-specific theory tools for guitar and bass.</div>
+
+    <div class="tools-list">
+        <div class="card">
+            <h3>🎸 Guitar Tuner</h3>
+            <div class="tagrow">
+                <span class="tag">Microphone</span>
+                <span class="tag">Tuning</span>
+                <span class="tag">Guitar</span>
+            </div>
+            <p>Browser-based guitar tuner using the microphone. Includes visual tuning feedback and standard tuning.</p>
+            <a class="tool-link" href="guitar_tuner.html">Open Guitar Tuner</a>
+        </div>
+
+        <div class="card">
+            <h3>🎸 Guitar Note Explorer</h3>
+            <div class="tagrow">
+                <span class="tag">Fretboard</span>
+                <span class="tag">Notes</span>
+                <span class="tag">Scales</span>
+            </div>
+            <p>Explore guitar fretboard notes, scales, chord tones and scale degrees visually.</p>
+            <a class="tool-link" href="guitar_note_explorer.html">Open Guitar Note Explorer</a>
+        </div>
+
+        <div class="card">
+            <h3>🎸 Bass Theory Tutor</h3>
+            <div class="tagrow">
+                <span class="tag">Bass</span>
+                <span class="tag">Root</span>
+                <span class="tag">Fifth</span>
+                <span class="tag">Groove</span>
+            </div>
+            <p>Bass theory helper for roots, fifths, octaves, scales, bassline thinking and groove ideas.</p>
+            <a class="tool-link" href="bass_theory_tutor.html">Open Bass Theory Tutor</a>
+        </div>
+    </div>
+
+    <div class="footer">
+        © 2026 Curved Sounds / Janne Kaarto<br>
+        Free Educational Edition · Tools are provided as experimental beta versions.
+    </div>
+
+</div>
+</body>
+</html>
