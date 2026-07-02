@@ -1,0 +1,94 @@
+<!doctype html>
+<!--
+Curved Sounds Piano Theory Tutor
+Copyright © 2026 Janne Kaarto / Curved Sounds
+Free Educational Edition · Redistribution only with attribution
+-->
+<html lang="fi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="author" content="Janne Kaarto / Curved Sounds">
+<title>Curved Sounds Piano Theory Tutor</title>
+<style>
+:root{--bg:#07111f;--card:#111827dd;--line:#2b3a50;--text:#f8fafc;--muted:#aab6c8;--cyan:#38bdf8;--green:#10b981;--amber:#f59e0b;--purple:#8b5cf6;--red:#ef4444;--blue:#60a5fa}*{box-sizing:border-box}body{margin:0;padding:18px;background:radial-gradient(circle at top left,#18365a,#07111f 46%,#020617);color:var(--text);font-family:Arial,Helvetica,sans-serif}.wrap{max-width:1350px;margin:auto}.top{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center}.badge{border:1px solid var(--cyan);background:#38bdf822;color:#bae6fd;border-radius:999px;padding:8px 13px;font-weight:900}.lang{display:flex;gap:8px}button{border:0;border-radius:14px;padding:10px 13px;font-weight:900;cursor:pointer;background:var(--cyan);color:#04131d;transition:.12s}button:hover{filter:brightness(1.12)}button:active{transform:scale(.96)}button.active{background:var(--green);color:#fff}.amber{background:var(--amber);color:#211300}.purple{background:var(--purple);color:#fff}.outline{background:transparent;color:var(--text);border:1px solid #536179}.nav{display:flex;gap:7px;flex-wrap:wrap;margin:14px 0}.nav a{color:#e0f7ff;text-decoration:none;border:1px solid #344258;background:#0b1220;border-radius:999px;padding:8px 11px;font-size:12px;font-weight:900}h1{font-size:38px;margin:18px 0 6px}.sub{color:var(--muted);font-size:16px;line-height:1.45}.brand{color:#a5f3fc;font-weight:900;margin-top:6px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px}.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:18px;box-shadow:0 12px 32px #0008;min-width:0}.title{color:#a5f3fc;margin-top:0}.controls{display:grid;grid-template-columns:repeat(4,1fr) auto;gap:10px;align-items:end}.controls3{display:grid;grid-template-columns:repeat(3,1fr) auto;gap:10px;align-items:end}.controls2{display:grid;grid-template-columns:1fr 1fr auto;gap:10px;align-items:end}label{display:block;font-size:13px;font-weight:900;color:#eef6ff}select{width:100%;margin-top:7px;background:#07111f;color:var(--text);border:1px solid #5b6472;border-radius:14px;padding:10px 12px;font-weight:850}.keyboard{position:relative;height:210px;background:#050a12;border:1px solid #263448;border-radius:16px;padding:14px;overflow:auto}.keys{position:relative;height:170px;min-width:980px}.white{position:absolute;bottom:0;width:42px;height:165px;background:#e8eef8;color:#111;border:1px solid #94a3b8;border-radius:0 0 8px 8px;display:flex;align-items:flex-end;justify-content:center;padding-bottom:9px;font-weight:900;font-size:12px}.black{position:absolute;top:0;width:28px;height:104px;background:#111827;color:#eaf8ff;border:1px solid #020617;border-radius:0 0 6px 6px;z-index:2;display:flex;align-items:flex-end;justify-content:center;padding-bottom:7px;font-weight:900;font-size:10px}.key.on{background:var(--cyan)!important;color:#03141d}.key.root{background:var(--red)!important;color:white}.key.chord{background:var(--amber)!important;color:#1c1200}.black.on{background:var(--purple)!important;color:#fff}.black.root{background:var(--red)!important}.legend{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}.legend span{border:1px solid #344258;background:#0b1220;border-radius:999px;padding:6px 9px;font-size:12px;font-weight:800}.pillgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(105px,1fr));gap:9px}.pill{background:#0b1220;border:1px solid #2a3547;border-radius:14px;padding:10px}.pill span{display:block;color:#9fb0c7;font-size:12px}.pill b{font-size:16px}pre,textarea{white-space:pre-wrap;background:#0009;border:1px solid var(--line);border-radius:16px;padding:14px;line-height:1.5;min-height:140px;color:var(--text);width:100%;font-family:Consolas,Menlo,monospace;overflow:auto}.mini{font-size:13px;color:#9fb0c7}.aboutBox{border:1px solid #344258;background:#0b1220;border-radius:16px;padding:14px;line-height:1.55}.watermark{text-align:center;color:#758199;font-size:12px;margin:24px 0 6px}.toast{position:fixed;right:18px;bottom:18px;background:#075985;color:#fff;padding:10px 14px;border-radius:12px;display:none}@media(max-width:1050px){.grid,.grid3,.controls,.controls2,.controls3{grid-template-columns:1fr}h1{font-size:31px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top"><div class="badge" data-i="badge">🎹 Curved Sounds · Piano Theory Tutor</div><div class="lang"><button id="fiBtn" onclick="setLang('fi')">🇫🇮 Suomi</button><button id="enBtn" onclick="setLang('en')">🇬🇧 English</button></div></div>
+  <div class="nav"><a href="#keyboard" data-i="navKeyboard">Koskettimet</a><a href="#chords" data-i="navChords">Soinnut</a><a href="#practice" data-i="navPractice">Harjoittelu</a><a href="#about">About</a></div>
+  <h1 data-i="mainTitle">Pianon teoriatyökalu</h1>
+  <div class="brand">Created by Curved Sounds / Janne Kaarto</div>
+  <p class="sub" data-i="intro">Nopea opetustyökalu sävellajien, asteikkojen, intervallien ja sointujen hahmottamiseen pianolla.</p>
+
+  <section id="keyboard" class="grid">
+    <div class="card">
+      <h2 class="title" data-i="controlsTitle">Valinnat</h2>
+      <div class="controls">
+        <div><label data-i="keyLabel">Sävellaji</label><select id="keySelect"></select></div>
+        <div><label data-i="modeLabel">Asteikko</label><select id="scaleSelect"></select></div>
+        <div><label data-i="viewLabel">Näytä</label><select id="viewSelect"></select></div>
+        <div><label data-i="chordLabel">Sointu</label><select id="chordSelect"></select></div>
+        <button class="green" onclick="updateAll()" data-i="showBtn">Näytä</button>
+      </div>
+      <div class="legend" id="legend"></div>
+      <div class="keyboard"><div class="keys" id="keys"></div></div>
+      <p class="mini" data-i="keyboardHint">Punainen = perussävel. Sininen = asteikko. Oranssi = soinnun sävelet.</p>
+    </div>
+    <div class="card">
+      <h2 class="title" id="resultTitle">C Major</h2>
+      <p class="sub" id="resultHelp"></p>
+      <h3 class="title" data-i="scaleNotesTitle">Asteikon sävelet</h3>
+      <div id="scaleOut" class="pillgrid"></div>
+      <h3 class="title" data-i="degreesTitle">Asteet</h3>
+      <div id="degreesOut" class="pillgrid"></div>
+    </div>
+  </section>
+
+  <section id="chords" class="grid3">
+    <div class="card"><h3 class="title" data-i="diatonicTitle">Sävellajin soinnut</h3><div id="diatonicOut" class="pillgrid"></div></div>
+    <div class="card"><h3 class="title" data-i="chordBuildTitle">Soinnun rakenne</h3><pre id="chordBuildOut"></pre></div>
+    <div class="card"><h3 class="title" data-i="intervalTitle">Intervallit perussävelestä</h3><pre id="intervalOut"></pre></div>
+  </section>
+
+  <section id="practice" class="grid">
+    <div class="card"><h3 class="title" data-i="practiceTitle">Harjoitusideat</h3><pre id="practiceOut"></pre><button class="amber" onclick="randomPractice()" data-i="randomPracticeBtn">Arvo harjoitus</button></div>
+    <div class="card"><h3 class="title" data-i="songwritingTitle">Biisintekovinkki pianolle</h3><pre id="songOut"></pre><button class="purple" onclick="copyText(allText.value)" data-i="copyBtn">Kopioi kaikki</button></div>
+  </section>
+
+  <section id="about" class="grid">
+    <div class="card"><h3 class="title">About / License</h3><div class="aboutBox" id="aboutBox"></div></div>
+    <div class="card"><h3 class="title">Export</h3><textarea id="allText" readonly></textarea></div>
+  </section>
+
+  <div class="watermark">© 2026 Curved Sounds / Janne Kaarto · Free Educational Edition · Redistribution only with attribution</div>
+</div>
+<div id="toast" class="toast"></div>
+<script>
+let lang='fi';
+const T={fi:{badge:'🎹 Curved Sounds · Pianon teoriatyökalu',navKeyboard:'Koskettimet',navChords:'Soinnut',navPractice:'Harjoittelu',mainTitle:'Pianon teoriatyökalu',intro:'Nopea opetustyökalu sävellajien, asteikkojen, intervallien ja sointujen hahmottamiseen pianolla.',controlsTitle:'Valinnat',keyLabel:'Sävellaji',modeLabel:'Asteikko',viewLabel:'Näytä',chordLabel:'Sointu',showBtn:'Näytä',keyboardHint:'Punainen = perussävel. Sininen = asteikko. Oranssi = soinnun sävelet.',scaleNotesTitle:'Asteikon sävelet',degreesTitle:'Asteet',diatonicTitle:'Sävellajin soinnut',chordBuildTitle:'Soinnun rakenne',intervalTitle:'Intervallit perussävelestä',practiceTitle:'Harjoitusideat',randomPracticeBtn:'Arvo harjoitus',songwritingTitle:'Biisintekovinkki pianolle',copyBtn:'Kopioi kaikki',copied:'Kopioitu',views:{scale:'Asteikko',chord:'Sointu',both:'Asteikko + sointu'},scales:{major:'Duuri',naturalMinor:'Luonnollinen molli',minorPent:'Mollipentatoninen',majorPent:'Duuripentatoninen',minorBlues:'Bluesmolli'},about:'Tämä työkalu on tehty pianon musiikinteorian opiskeluun: sävellajit, asteikot, soinnut, intervallit ja yksinkertaiset harjoitukset. Ilmainen opetuskäyttöön tarkoitettu versio. Uudelleenjakelu vain tekijätiedot säilyttäen.'},en:{badge:'🎹 Curved Sounds · Piano Theory Tutor',navKeyboard:'Keyboard',navChords:'Chords',navPractice:'Practice',mainTitle:'Piano Theory Tutor',intro:'A quick learning tool for understanding keys, scales, intervals and chords on piano.',controlsTitle:'Controls',keyLabel:'Key',modeLabel:'Scale',viewLabel:'Show',chordLabel:'Chord',showBtn:'Show',keyboardHint:'Red = root. Blue = scale. Orange = chord tones.',scaleNotesTitle:'Scale notes',degreesTitle:'Degrees',diatonicTitle:'Diatonic chords',chordBuildTitle:'Chord structure',intervalTitle:'Intervals from root',practiceTitle:'Practice ideas',randomPracticeBtn:'Random practice',songwritingTitle:'Piano songwriting tip',copyBtn:'Copy all',copied:'Copied',views:{scale:'Scale',chord:'Chord',both:'Scale + chord'},scales:{major:'Major',naturalMinor:'Natural minor',minorPent:'Minor pentatonic',majorPent:'Major pentatonic',minorBlues:'Minor blues'},about:'This tool is made for learning piano music theory: keys, scales, chords, intervals and simple practice routines. Free Educational Edition. Redistribution only with attribution.'}};
+const roots=['C','C#','D','Eb','E','F','F#','G','Ab','A','Bb','B'];const noteMap={C:0,'C#':1,Db:1,D:2,'D#':3,Eb:3,E:4,F:5,'F#':6,Gb:6,G:7,'G#':8,Ab:8,A:9,'A#':10,Bb:10,B:11};const sharp=['C','C#','D','D#','E','F','F#','G','G#','A','A#','B'];const flat=['C','Db','D','Eb','E','F','Gb','G','Ab','A','Bb','B'];
+const scaleDefs={major:{ints:[0,2,4,5,7,9,11],deg:['1','2','3','4','5','6','7'],qualities:['','m','m','','','m','dim']},naturalMinor:{ints:[0,2,3,5,7,8,10],deg:['1','2','♭3','4','5','♭6','♭7'],qualities:['m','dim','','m','m','','']},minorPent:{ints:[0,3,5,7,10],deg:['1','♭3','4','5','♭7']},majorPent:{ints:[0,2,4,7,9],deg:['1','2','3','5','6']},minorBlues:{ints:[0,3,5,6,7,10],deg:['1','♭3','4','♭5','5','♭7']}};
+const chordDefs={triad:{name:'Triad',ints:[0,4,7],labels:['1','3','5']},minor:{name:'Minor',ints:[0,3,7],labels:['1','♭3','5']},sus2:{name:'Sus2',ints:[0,2,7],labels:['1','2','5']},sus4:{name:'Sus4',ints:[0,5,7],labels:['1','4','5']},dom7:{name:'7',ints:[0,4,7,10],labels:['1','3','5','♭7']},maj7:{name:'Maj7',ints:[0,4,7,11],labels:['1','3','5','7']},m7:{name:'m7',ints:[0,3,7,10],labels:['1','♭3','5','♭7']}};
+const intervalNamesFi=['unisono','pieni sekunti','suuri sekunti','pieni terssi','suuri terssi','kvartti','tritonus','kvintti','pieni seksti','suuri seksti','pieni septimi','suuri septimi'];
+const intervalNamesEn=['unison','minor second','major second','minor third','major third','perfect fourth','tritone','perfect fifth','minor sixth','major sixth','minor seventh','major seventh'];
+function preferFlats(r){return ['F','Bb','Eb','Ab','Db','Bbm','Fm','Cm','Gm','Dm'].includes(r)}function semi(n){return noteMap[n]}function nm(s,useFl){return (useFl?flat:sharp)[((s%12)+12)%12]}function tr(r,i,useFl=false){return nm(semi(r)+i,useFl)}
+function setLang(l){lang=l;document.documentElement.lang=l;fiBtn.classList.toggle('active',l==='fi');enBtn.classList.toggle('active',l==='en');document.querySelectorAll('[data-i]').forEach(e=>{let k=e.dataset.i;if(T[l][k])e.textContent=T[l][k]});fillMenus();updateAll()}
+function fillSelect(sel,obj,current){sel.innerHTML='';Object.entries(obj).forEach(([v,t])=>sel.add(new Option(t,v)));if(current&&obj[current])sel.value=current}
+function fillMenus(){let oldK=keySelect.value||'C',oldS=scaleSelect.value||'major',oldV=viewSelect.value||'both',oldC=chordSelect.value||'triad';keySelect.innerHTML='';roots.forEach(r=>keySelect.add(new Option(r,r)));keySelect.value=oldK;fillSelect(scaleSelect,T[lang].scales,oldS);fillSelect(viewSelect,T[lang].views,oldV);chordSelect.innerHTML='';Object.entries(chordDefs).forEach(([k,v])=>chordSelect.add(new Option(v.name,k)));chordSelect.value=oldC}
+function scaleNotes(){let r=keySelect.value,def=scaleDefs[scaleSelect.value],useFl=preferFlats(r);return def.ints.map((i,idx)=>({note:tr(r,i,useFl),pc:(semi(r)+i)%12,degree:def.deg[idx],int:i}))}
+function chordNotes(){let r=keySelect.value,def=chordDefs[chordSelect.value],useFl=preferFlats(r);return def.ints.map((i,idx)=>({note:tr(r,i,useFl),pc:(semi(r)+i)%12,label:def.labels[idx],int:i}))}
+function drawKeyboard(){let whiteNames=['C','D','E','F','G','A','B'];let blackAfter={C:'C#',D:'D#',F:'F#',G:'G#',A:'A#'};keys.innerHTML='';let scale=scaleNotes(),chord=chordNotes(),view=viewSelect.value;let rootPc=semi(keySelect.value),whiteIndex=0,octaves=[3,4,5];octaves.forEach(o=>{whiteNames.forEach(w=>{let left=whiteIndex*42,pc=semi(w),classes='key white';let inScale=scale.some(x=>x.pc===pc),inChord=chord.some(x=>x.pc===pc);if(pc===rootPc)classes+=' root';else if((view==='scale'||view==='both')&&inScale)classes+=' on';if((view==='chord'||view==='both')&&inChord&&pc!==rootPc)classes+=' chord';let div=document.createElement('div');div.className=classes;div.style.left=left+'px';div.textContent=w+o;keys.appendChild(div);if(blackAfter[w]){let b=blackAfter[w],bpc=semi(b),bclasses='key black';let bs=scale.some(x=>x.pc===bpc),bc=chord.some(x=>x.pc===bpc);if(bpc===rootPc)bclasses+=' root';else if((view==='scale'||view==='both')&&bs)bclasses+=' on';if((view==='chord'||view==='both')&&bc&&bpc!==rootPc)bclasses+=' chord';let bd=document.createElement('div');bd.className=bclasses;bd.style.left=(left+28)+'px';bd.textContent=b;keys.appendChild(bd)}whiteIndex++})})}
+function updateAll(){let sc=scaleNotes(),ch=chordNotes(),r=keySelect.value;resultTitle.textContent=r+' '+scaleSelect.options[scaleSelect.selectedIndex].text;resultHelp.textContent=lang==='fi'?'Valitut sävelet näkyvät koskettimistolla väreillä.':'Selected notes are highlighted on the keyboard.';legend.innerHTML=`<span style="color:#ef4444">●</span> ${lang==='fi'?'Perussävel':'Root'} <span style="color:#38bdf8">●</span> ${lang==='fi'?'Asteikko':'Scale'} <span style="color:#f59e0b">●</span> ${lang==='fi'?'Sointu':'Chord'}`;scaleOut.innerHTML=sc.map(x=>`<div class="pill"><span>${x.degree}</span><b>${x.note}</b></div>`).join('');degreesOut.innerHTML=sc.map(x=>`<div class="pill"><span>${x.note}</span><b>${x.degree}</b></div>`).join('');drawKeyboard();buildDiatonic();buildChordInfo();buildIntervals();buildSongTip();buildPractice();aboutBox.textContent=T[lang].about;updateExport()}
+function buildDiatonic(){let r=keySelect.value,def=scaleDefs[scaleSelect.value],useFl=preferFlats(r);if(!def.qualities){diatonicOut.innerHTML='<div class="pill"><b>-</b><span>pentatonic / blues</span></div>';return}diatonicOut.innerHTML=def.ints.map((i,idx)=>{let note=tr(r,i,useFl),q=def.qualities[idx],name=note+q;return `<div class="pill"><span>${def.deg[idx]}</span><b>${name}</b></div>`}).join('')}
+function buildChordInfo(){let ch=chordNotes(),name=keySelect.value+' '+chordDefs[chordSelect.value].name;chordBuildOut.textContent=(lang==='fi'?`Sointu: ${name}\nRakenne: `:`Chord: ${name}\nStructure: `)+ch.map(x=>x.label+' = '+x.note).join(' | ')}
+function buildIntervals(){let sc=scaleNotes(),names=lang==='fi'?intervalNamesFi:intervalNamesEn;intervalOut.textContent=sc.map(x=>`${x.note}: ${x.degree} · ${names[x.int]||x.int+' semitones'}`).join('\n')}
+function buildSongTip(){let sc=scaleNotes().map(x=>x.note),root=keySelect.value;songOut.textContent=lang==='fi'?`Pianoidea sävellajissa ${root}:\n- Vasen käsi: perussävel + kvintti.\n- Oikea käsi: soita soinnun 3–4 säveltä.\n- Tee pieni melodia asteikon sävelistä: ${sc.join(' - ')}\n- Aloita hitaasti ja vaihda sointu yhdellä tai kahdella tahdilla.`:`Piano idea in ${root}:\n- Left hand: root + fifth.\n- Right hand: play 3–4 chord tones.\n- Create a short melody from the scale: ${sc.join(' - ')}\n- Start slowly and change chord every one or two bars.`}
+function buildPractice(){let root=keySelect.value;practiceOut.textContent=lang==='fi'?`1. Soita ${root}-perussävel kolmesta oktaavista.\n2. Soita asteikko ylös ja alas.\n3. Sano jokainen aste ääneen: 1, 2, 3...\n4. Rakenna valittu sointu molemmilla käsillä.\n5. Tee 2 tahdin pieni melodia oikealla kädellä.`:`1. Play the ${root} root in three octaves.\n2. Play the scale up and down.\n3. Say each degree aloud: 1, 2, 3...\n4. Build the selected chord with both hands.\n5. Create a two-bar melody with the right hand.`}
+function randomPractice(){let opts=['scale','chord','both'];viewSelect.value=opts[Math.floor(Math.random()*opts.length)];let chs=Object.keys(chordDefs);chordSelect.value=chs[Math.floor(Math.random()*chs.length)];updateAll();toastMsg(lang==='fi'?'Harjoitus arvottu':'Practice generated')}
+function updateExport(){allText.value=[resultTitle.textContent,resultHelp.textContent,scaleOut.innerText,degreesOut.innerText,diatonicOut.innerText,chordBuildOut.textContent,intervalOut.textContent,practiceOut.textContent,songOut.textContent,'Created by Curved Sounds / Janne Kaarto','Copyright © 2026 Janne Kaarto / Curved Sounds'].join('\n\n')}
+function copyText(t){if(navigator.clipboard)navigator.clipboard.writeText(t).then(()=>toastMsg(T[lang].copied));else toastMsg('Copy unavailable')}function toastMsg(m){toast.textContent=m;toast.style.display='block';setTimeout(()=>toast.style.display='none',1600)}
+function init(){fillMenus();['keySelect','scaleSelect','viewSelect','chordSelect'].forEach(id=>document.getElementById(id).addEventListener('change',updateAll));setLang('fi')}init();
+</script>
+</body></html>
