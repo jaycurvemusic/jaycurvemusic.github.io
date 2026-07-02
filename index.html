@@ -7,84 +7,180 @@
 <title>Curved Sounds</title>
 
 <style>
+:root{
+    --bg1:#18365a;
+    --bg2:#07111f;
+    --bg3:#020617;
+    --card:#111827dd;
+    --card2:#0b1220;
+    --line:#2b3a50;
+    --text:#f8fafc;
+    --muted:#aab6c8;
+    --cyan:#38bdf8;
+    --green:#10b981;
+    --amber:#f59e0b;
+    --purple:#8b5cf6;
+}
+
+*{
+    box-sizing:border-box;
+}
+
 body{
     margin:0;
-    padding:40px 20px;
-    font-family:Arial,Helvetica,sans-serif;
-    background:radial-gradient(circle at top left,#18365a,#07111f 46%,#020617);
-    color:white;
+    padding:36px 18px;
+    font-family:Arial, Helvetica, sans-serif;
+    background:radial-gradient(circle at top left,var(--bg1),var(--bg2) 46%,var(--bg3));
+    color:var(--text);
 }
 
 .wrap{
-    max-width:1000px;
+    max-width:1180px;
     margin:auto;
+}
+
+.top{
+    display:flex;
+    justify-content:space-between;
+    gap:14px;
+    flex-wrap:wrap;
+    align-items:center;
 }
 
 .badge{
     display:inline-block;
-    border:1px solid #38bdf8;
+    border:1px solid var(--cyan);
     background:#38bdf822;
     color:#bae6fd;
     padding:8px 14px;
     border-radius:999px;
-    font-weight:bold;
+    font-weight:900;
 }
 
 h1{
-    font-size:46px;
-    margin:20px 0 8px;
+    font-size:48px;
+    margin:22px 0 8px;
+    letter-spacing:-1px;
 }
 
 .subtitle{
-    color:#94a3b8;
+    color:var(--muted);
     font-size:18px;
-    margin-bottom:25px;
+    max-width:850px;
+    line-height:1.55;
+    margin-bottom:24px;
 }
 
 .beta{
     background:#4a3300;
-    border:1px solid #f59e0b;
+    border:1px solid var(--amber);
     color:#fde68a;
     padding:18px;
     border-radius:18px;
-    margin-bottom:24px;
+    margin:22px 0;
     line-height:1.6;
+}
+
+.feedback{
+    background:#06293a;
+    border:1px solid var(--cyan);
+    color:#dff7ff;
+    padding:18px;
+    border-radius:18px;
+    margin:22px 0 30px;
+    line-height:1.6;
+}
+
+.feedback a{
+    color:#7dd3fc;
+    font-weight:900;
+}
+
+.section-title{
+    margin:34px 0 14px;
+    color:#e0f7ff;
+    font-size:25px;
+}
+
+.section-desc{
+    color:var(--muted);
+    margin-bottom:14px;
+    line-height:1.5;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:18px;
 }
 
 .card{
-    background:#1e293b;
-    border:1px solid #334155;
-    border-radius:18px;
-    padding:24px;
-    margin-bottom:20px;
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:20px;
+    padding:22px;
+    box-shadow:0 12px 30px #0007;
 }
 
-.card h2{
-    margin-top:0;
+.card h3{
+    margin:0 0 12px;
     color:#bae6fd;
+    font-size:21px;
+}
+
+.card p{
+    color:#cbd5e1;
+    line-height:1.55;
+    margin:0 0 18px;
 }
 
 .card a{
-    color:#38bdf8;
+    display:inline-block;
+    color:#04131d;
+    background:var(--cyan);
     text-decoration:none;
-    font-size:22px;
-    font-weight:bold;
+    padding:11px 14px;
+    border-radius:14px;
+    font-weight:900;
 }
 
 .card a:hover{
-    text-decoration:underline;
+    filter:brightness(1.12);
 }
 
-.desc{
-    margin-top:10px;
-    color:#cbd5e1;
-    line-height:1.6;
+.tagrow{
+    display:flex;
+    gap:7px;
+    flex-wrap:wrap;
+    margin-bottom:14px;
+}
+
+.tag{
+    font-size:12px;
+    color:#cdefff;
+    border:1px solid #344258;
+    background:var(--card2);
+    border-radius:999px;
+    padding:5px 8px;
+    font-weight:800;
 }
 
 .footer{
-    margin-top:30px;
-    color:#64748b;
+    margin-top:42px;
+    color:#758199;
     font-size:13px;
+    line-height:1.6;
+    text-align:center;
+}
+
+@media(max-width:700px){
+    h1{
+        font-size:36px;
+    }
+
+    body{
+        padding:24px 14px;
+    }
 }
 </style>
 </head>
@@ -93,79 +189,190 @@ h1{
 
 <div class="wrap">
 
-<div class="badge">
-🎼 Curved Sounds · Music Tools & Creative Experiments
-</div>
+    <div class="top">
+        <div class="badge">
+            🎼 Curved Sounds · Music Tools & Creative Experiments
+        </div>
+    </div>
 
-<h1>Curved Sounds</h1>
+    <h1>Curved Sounds</h1>
 
-<div class="subtitle">
-Music theory tools, songwriting helpers and creative experiments.
-</div>
+    <div class="subtitle">
+        Practical music theory, songwriting, instrument learning and MIDI idea generation tools.
+        Built for experimenting with chords, melodies, basslines, drums and creative workflows.
+    </div>
 
-<div class="beta">
+    <div class="beta">
+        <b>🇫🇮 Beta-testausilmoitus</b><br>
+        Kaikki tällä sivustolla olevat työkalut ovat tällä hetkellä beta-testivaiheessa.
+        Työkaluissa voi esiintyä virheitä, puutteita, epätarkkuuksia tai odottamatonta toimintaa.
 
-<b>🇫🇮 Beta-testausilmoitus</b><br>
-Kaikki tällä sivustolla olevat työkalut ovat tällä hetkellä beta-testivaiheessa.
-Työkaluissa voi esiintyä virheitä, puutteita, epätarkkuuksia tai odottamatonta toimintaa.
+        <br><br>
 
-<br><br>
+        <b>🇬🇧 Beta Testing Notice</b><br>
+        All tools available on this website are currently in beta testing.
+        Bugs, inaccuracies, missing features and unexpected behavior may occur.
+    </div>
 
-<b>🇬🇧 Beta Testing Notice</b><br>
-All tools available on this website are currently in beta testing.
-Bugs, inaccuracies, missing features and unexpected behavior may occur.
+    <div class="feedback">
+        <b>🇫🇮 Palaute</b><br>
+        Voit lähettää palautetta sivustosta, työkaluista, virheistä tai kehitysideoista osoitteeseen:
+        <br>
+        <a href="mailto:jaycurve.music@gmail.com?subject=Curved%20Sounds%20feedback">
+            jaycurve.music@gmail.com
+        </a>
 
-</div>
+        <br><br>
 
-<div class="card">
+        <b>🇬🇧 Feedback</b><br>
+        You can send feedback, bug reports or feature ideas about this website and its tools to:
+        <br>
+        <a href="mailto:jaycurve.music@gmail.com?subject=Curved%20Sounds%20feedback">
+            jaycurve.music@gmail.com
+        </a>
+    </div>
 
-<h2>🎼 Songwriter's Music Theory Toolkit</h2>
+    <h2 class="section-title">🎛 MIDI & Production Tools</h2>
+    <div class="section-desc">
+        Tools for generating MIDI sketches, chord progressions, basslines, arpeggios, drums and melodies for DAW use.
+    </div>
 
-<a href="songwriter-toolkit.html">
-Open Songwriter Toolkit
-</a>
+    <div class="grid">
 
-<div class="desc">
-Music theory, chord visualizer, guitar fretboard,
-barre chords, scales, songwriting ideas and instrument-specific suggestions.
-</div>
+        <div class="card">
+            <h3>🎛 Multi MIDI Generator</h3>
+            <div class="tagrow">
+                <span class="tag">Chords</span>
+                <span class="tag">Bass</span>
+                <span class="tag">Arp</span>
+                <span class="tag">Lead</span>
+                <span class="tag">Drums</span>
+            </div>
+            <p>
+                Generate genre-based MIDI ideas with separate chords, bass, arp, lead/melody and drum tracks.
+                Export full MIDI or individual lanes.
+            </p>
+            <a href="multi_midi_generator.html">Open Multi MIDI Generator</a>
+        </div>
 
-</div>
+        <div class="card">
+            <h3>🎛 MIDI Chord Generator Tutor</h3>
+            <div class="tagrow">
+                <span class="tag">MIDI</span>
+                <span class="tag">Chords</span>
+                <span class="tag">Drums</span>
+                <span class="tag">Learning</span>
+            </div>
+            <p>
+                Learn MIDI basics and generate 4 or 8 bar MIDI chord and drum patterns.
+                Suitable for quick DAW sketching.
+            </p>
+            <a href="midi_chord_generator_tutor.html">Open MIDI Chord Generator</a>
+        </div>
 
-<div class="card">
+    </div>
 
-<h2>⭕ Circle of Fifths</h2>
+    <h2 class="section-title">🎼 Songwriting & Music Theory</h2>
+    <div class="section-desc">
+        General music theory and songwriting tools for chords, scales, keys and harmonic ideas.
+    </div>
 
-<a href="circle-of-fifths.html">
-Open Circle of Fifths
-</a>
+    <div class="grid">
 
-<div class="desc">
-Quick circle of fifths helper for keys, chords, neighboring keys
-and common songwriting progressions.
-</div>
+        <div class="card">
+            <h3>🎼 Songwriter Toolkit</h3>
+            <div class="tagrow">
+                <span class="tag">Songwriting</span>
+                <span class="tag">Chords</span>
+                <span class="tag">Scales</span>
+                <span class="tag">Ideas</span>
+            </div>
+            <p>
+                Music theory, songwriting ideas, chord suggestions, scale helpers and creative composition support.
+            </p>
+            <a href="songwriter-toolkit.html">Open Songwriter Toolkit</a>
+        </div>
 
-</div>
+        <div class="card">
+            <h3>⭕ Circle of Fifths</h3>
+            <div class="tagrow">
+                <span class="tag">Keys</span>
+                <span class="tag">Chords</span>
+                <span class="tag">Theory</span>
+            </div>
+            <p>
+                Quick circle of fifths helper for keys, neighboring keys, chords and common songwriting progressions.
+            </p>
+            <a href="circle-of-fifths.html">Open Circle of Fifths</a>
+        </div>
 
-<div class="card">
+        <div class="card">
+            <h3>🎹 Piano Theory Tutor</h3>
+            <div class="tagrow">
+                <span class="tag">Piano</span>
+                <span class="tag">Scales</span>
+                <span class="tag">Chords</span>
+            </div>
+        keyboard helper for scales, chords, intervals, scale degrees and practice ideas.
+            </p>
+            piano_theory_tutor.htmlOpen Piano Theory Tutor</a>
+        </div>
 
-<h2>🎹 Piano Theory Tutor</h2>
+    </div>
 
-<a href="piano_theory_tutor.html">
-Open Piano Theory Tutor
-</a>
+    <h2 class="section-title">🎸 Guitar & Bass Tools</h2>
+    <div class="section-desc">
+        Fretboard, tuning and instrument-specific theory tools for guitar and bass.
+    </div>
 
-<div class="desc">
-Piano keyboard helper for scales, chords, intervals,
-scale degrees, diatonic chords and practice ideas.
-</div>
+    <div class="grid">
 
-</div>
+        <div class="card">
+            <h3>🎸 Guitar Tuner</h3>
+            <div class="tagrow">
+                <span class="tag">Microphone</span>
+                <span class="tag">Tuning</span>
+                <span class="tag">Guitar</span>
+            </div>
+            <p>
+                Browser-based guitar tuner using the microphone. Includes visual tuning feedback and standard tuning.
+            </p>
+            guitar_tuner.htmlOpen Guitar Tuner</a>
+        </div>
 
-<div class="footer">
-© 2026 Curved Sounds / Janne Kaarto<br>
-Free Educational Edition
-</div>
+        <div class="card">
+            <h3>🎸 Guitar Note Explorer</h3>
+            <div class="tagrow">
+                <span class="tag">Fretboard</span>
+                <span class="tag">Notes</span>
+                <span class="tag">Scales</span>
+            </div>
+            <p>
+                Explore guitar fretboard notes, scales, chord tones and scale degrees visually.
+            </p>
+            guitar_note_explorer.htmlOpen Guitar Note Explorer</a>
+        </div>
+
+        <div class="card">
+            <h3>🎸 Bass Theory Tutor</h3>
+            <div class="tagrow">
+                <span class="tag">Bass</span>
+                <span class="tag">Root</span>
+                <span class="tag">Fifth</span>
+                <span class="tag">Groove</span>
+            </div>
+            <p>
+                Bass theory helper for roots, fifths, octaves, scales, bassline thinking and groove ideas.
+            </p>
+            bass_theory_tutor.htmlOpen Bass Theory Tutor</a>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        © 2026 Curved Sounds / Janne Kaarto<br>
+        Free Educational Edition · Tools are provided as experimental beta versions.
+    </div>
 
 </div>
 
