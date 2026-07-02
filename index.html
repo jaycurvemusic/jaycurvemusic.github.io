@@ -18,6 +18,7 @@
     --muted:#aab6c8;
     --cyan:#38bdf8;
     --amber:#f59e0b;
+    --coffee:#ffdd00;
 }
 
 *{
@@ -77,13 +78,71 @@ h1{
     color:#dff7ff;
     padding:18px;
     border-radius:18px;
-    margin:22px 0 30px;
+    margin:22px 0;
     line-height:1.6;
 }
 
 .feedback a{
     color:#7dd3fc;
     font-weight:900;
+}
+
+.support{
+    background:#111827dd;
+    border:1px solid #facc15;
+    color:#fff7cc;
+    padding:22px;
+    border-radius:20px;
+    margin:24px 0 34px;
+    display:grid;
+    grid-template-columns:1.4fr 220px;
+    gap:22px;
+    align-items:center;
+}
+
+.support h2{
+    margin:0 0 10px;
+    color:#ffef8a;
+}
+
+.support p{
+    line-height:1.6;
+    color:#f8f2c0;
+    margin:0 0 16px;
+}
+
+.coffee-btn{
+    display:inline-block;
+    background:var(--coffee);
+    color:#111;
+    text-decoration:none;
+    font-weight:900;
+    padding:14px 20px;
+    border-radius:14px;
+    box-shadow:0 8px 22px #0006;
+}
+
+.coffee-btn:hover{
+    filter:brightness(1.05);
+}
+
+.qrbox{
+    text-align:center;
+}
+
+.qrbox img{
+    max-width:210px;
+    width:100%;
+    border-radius:18px;
+    background:white;
+    padding:8px;
+    box-shadow:0 10px 25px #0008;
+}
+
+.qrbox div{
+    margin-top:8px;
+    color:#fef3c7;
+    font-size:13px;
 }
 
 .section-title{
@@ -163,13 +222,21 @@ h1{
     text-align:center;
 }
 
-@media(max-width:700px){
+@media(max-width:800px){
     h1{
         font-size:36px;
     }
 
     body{
         padding:24px 14px;
+    }
+
+    .support{
+        grid-template-columns:1fr;
+    }
+
+    .qrbox img{
+        max-width:180px;
     }
 }
 </style>
@@ -220,5 +287,174 @@ h1{
         </a>
     </div>
 
+    <div class="support">
+        <div>
+            <h2>☕ Support Curved Sounds</h2>
+
+            <p>
+                Curved Sounds tools are free to use. If these tools help you learn,
+                create music or find new ideas, you can support future development
+                by buying me a coffee.
+            </p>
+
+            <p>
+                Your support helps keep these music theory, songwriting and MIDI tools
+                freely available for musicians, producers and creative learners.
+            </p>
+
+            <a class="coffee-btn" href="https://buymeacoffee.com/liwgdnxqyw" target="_blank" rel="noopener noreferrer">
+                ☕ Buy Me a Coffee
+            </a>
+        </div>
+
+        <div class="qrbox">
+            <a href="https://buymeacoffee.com/liwgdnxqyw" target="_blank" rel="noopener noreferrer">
+                <img src="bmc_qr.png" alt="Buy Me a Coffee QR code for Curved Sounds">
+            </a>
+            <div>Scan to support Curved Sounds</div>
+        </div>
+    </div>
+
     <h2 class="section-title">🎛 MIDI & Production Tools</h2>
     <div class="section-desc">
+        Tools for generating MIDI sketches, chord progressions, basslines, arpeggios, drums and melodies for DAW use.
+    </div>
+
+    <div class="grid">
+
+        <div class="card">
+            <h3>🎛 Multi MIDI Generator</h3>
+            <div class="tagrow">
+                <span class="tag">Chords</span>
+                <span class="tag">Bass</span>
+                <span class="tag">Arp</span>
+                <span class="tag">Lead</span>
+                <span class="tag">Drums</span>
+            </div>
+            <p>
+                Generate genre-based MIDI ideas with separate chords, bass, arp, lead/melody and drum tracks.
+                Export full MIDI or individual lanes.
+            </p>
+            <a href="multi_midi_generator.html">Open Multi MIDI Generator</a>
+        </div>
+
+        <div class="card">
+            <h3>🎛 MIDI Chord Generator Tutor</h3>
+            <div class="tagrow">
+                <span class="tag">MIDI</span>
+                <span class="tag">Chords</span>
+                <span class="tag">Drums</span>
+                <span class="tag">Learning</span>
+            </div>
+            <p>
+                Learn MIDI basics and generate 4 or 8 bar MIDI chord and drum patterns.
+                Suitable for quick DAW sketching.
+            </p>
+            <a href="midi_chord_generator_tutor.html">Open MIDI Chord Generator</a>
+        </div>
+
+    </div>
+
+    <h2 class="section-title">🎼 Songwriting & Music Theory</h2>
+    <div class="section-desc">
+        General music theory and songwriting tools for chords, scales, keys and harmonic ideas.
+    </div>
+
+    <div class="grid">
+
+        <div class="card">
+            <h3>🎼 Songwriter Toolkit</h3>
+            <div class="tagrow">
+                <span class="tag">Songwriting</span>
+                <span class="tag">Chords</span>
+                <span class="tag">Scales</span>
+                <span class="tag">Ideas</span>
+            </div>
+            <p>
+                Music theory, songwriting ideas, chord suggestions, scale helpers and creative composition support.
+            </p>
+            <a href="songwriter-toolkit.html">Open Songwriter Toolkit</a>
+        </div>
+
+        <div class="card">
+            <h3>⭕ Circle of Fifths</h3>
+            <div class="tagrow">
+                <span class="tag">Keys</span>
+                <span        Quick circle of fifths helper for keys, neighboring keys, chords and common songwriting progressions.
+            </p>
+            <a href="circle-of-fifths.html">Open Circle of Fifths</a>
+        </div>
+
+        <div class="card">
+            <h3>🎹 Piano Theory Tutor</h3>
+            <div class="tagrow">
+                <span class="tag">Piano</span>
+                <span class="tag">Scales</span>
+                <span class="tag">Chords</span>
+            </div>
+            <p>
+                Keyboard helper for scales, chords, intervals, scale degrees and practice ideas.
+            </p>
+            piano_theory_tutor.htmlOpen Piano Theory Tutor</a>
+        </div>
+
+    </div>
+
+    <h2 class="section-title">🎸 Guitar & Bass Tools</h2>
+    <div class="section-desc">
+        Fretboard, tuning and instrument-specific theory tools for guitar and bass.
+    </div>
+
+    <div class="grid">
+
+        <div class="card">
+            <h3>🎸 Guitar Tuner</h3>
+            <div class="tagrow">
+                <span class="tag">Microphone</span>
+                <span class="tag">Tuning</span>
+                <span class="tag">Guitar</span>
+            </div>
+            <p>
+                Browser-based guitar tuner using the microphone. Includes visual tuning feedback and standard tuning.
+            </p>
+            guitar_tuner.htmlOpen Guitar Tuner</a>
+        </div>
+
+        <div class="card">
+            <h3>🎸 Guitar Note Explorer</h3>
+            <div class="tagrow">
+                <span class="tag">Fretboard</span>
+                <span class="tag">Notes</span>
+                <span class="tag">Scales</span>
+            </div>
+            <p>
+                Explore guitar fretboard notes, scales, chord tones and scale degrees visually.
+            </p>
+            guitar_note_explorer.htmlOpen Guitar Note Explorer</a>
+        </div>
+
+        <div class="card">
+            <h3>🎸 Bass Theory Tutor</h3>
+            <div class="tagrow">
+                <span class="tag">Bass</span>
+                <span class="tag">Root</span>
+                <span class="tag">Fifth</span>
+                <span class="tag">Groove</span>
+            </div>
+            <p>
+                Bass theory helper for roots, fifths, octaves, scales, bassline thinking and groove ideas.
+            </p>
+            bass_theory_tutor.htmlOpen Bass Theory Tutor</a>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        © 2026 Curved Sounds / Janne Kaarto<br>
+        Free Educational Edition · Tools are provided as experimental beta versions.
+    </div>
+
+</div>
+
+</body>
+</html>
