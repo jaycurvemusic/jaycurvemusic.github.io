@@ -7,139 +7,86 @@
 <title>Curved Sounds</title>
 
 <style>
-:root{
-    --bg:#0f172a;
-    --card:#1e293b;
-    --card2:#111827;
-    --text:#f8fafc;
-    --muted:#94a3b8;
-    --cyan:#38bdf8;
-    --amber:#f59e0b;
-    --green:#10b981;
+body {
+    margin: 0;
+    padding: 40px 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #0f172a;
+    color: white;
 }
 
-*{
-    box-sizing:border-box;
+.wrap {
+    max-width: 900px;
+    margin: auto;
 }
 
-body{
-    margin:0;
-    font-family:Arial, Helvetica, sans-serif;
-    background:radial-gradient(circle at top left,#1e3a5f,#0f172a 45%,#020617);
-    color:var(--text);
-    padding:40px 20px;
+.badge {
+    display: inline-block;
+    border: 1px solid #38bdf8;
+    background: #38bdf822;
+    color: #bae6fd;
+    padding: 8px 14px;
+    border-radius: 999px;
+    font-weight: bold;
+    margin-bottom: 20px;
 }
 
-.wrap{
-    max-width:1000px;
-    margin:auto;
+h1 {
+    font-size: 42px;
+    margin: 10px 0;
 }
 
-.header{
-    margin-bottom:28px;
+.subtitle {
+    color: #94a3b8;
+    font-size: 18px;
+    margin-bottom: 25px;
 }
 
-.badge{
-    display:inline-block;
-    border:1px solid var(--cyan);
-    background:#38bdf822;
-    color:#bae6fd;
-    padding:8px 14px;
-    border-radius:999px;
-    font-weight:800;
-    font-size:14px;
+.beta {
+    background: #3f2d00;
+    border: 1px solid #f59e0b;
+    color: #fde68a;
+    padding: 18px;
+    border-radius: 16px;
+    margin: 24px 0;
+    line-height: 1.6;
 }
 
-h1{
-    font-size:46px;
-    margin:18px 0 8px;
-    letter-spacing:-1px;
+.card {
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 18px;
+    padding: 22px;
+    margin-bottom: 18px;
 }
 
-.subtitle{
-    color:var(--muted);
-    font-size:19px;
-    line-height:1.5;
+.card h2 {
+    margin-top: 0;
+    color: #bae6fd;
 }
 
-.beta-notice{
-    background:#3f2d00;
-    border:1px solid var(--amber);
-    color:#fde68a;
-    padding:18px;
-    border-radius:16px;
-    margin:26px 0;
-    line-height:1.6;
+a {
+    color: #38bdf8;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
 }
 
-.beta-notice strong{
-    color:#fff7cc;
+a:hover {
+    text-decoration: underline;
 }
 
-.grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:18px;
-    margin-top:24px;
+.desc {
+    color: #cbd5e1;
+    margin-top: 10px;
+    line-height: 1.5;
 }
 
-.card{
-    background:var(--card);
-    border:1px solid #334155;
-    border-radius:18px;
-    padding:22px;
-    box-shadow:0 10px 30px #0007;
-}
-
-.card h2{
-    margin-top:0;
-    color:#bae6fd;
-}
-
-.card a{
-    color:var(--cyan);
-    font-size:20px;
-    font-weight:800;
-    text-decoration:none;
-}
-
-.card a:hover{
-    text-decoration:underline;
-}
-
-.desc{
-    color:#cbd5e1;
-    margin-top:10px;
-    line-height:1.5;
-}
-
-.status{
-    display:inline-block;
-    margin-top:14px;
-    padding:5px 9px;
-    border-radius:999px;
-    background:#064e3b;
-    color:#a7f3d0;
-    font-size:12px;
-    font-weight:800;
-}
-
-.status.beta{
-    background:#78350f;
-    color:#fde68a;
-}
-
-.footer{
-    color:#64748b;
-    margin-top:34px;
-    font-size:13px;
-    line-height:1.6;
-}
-
-.small-note{
-    color:#94a3b8;
-    font-size:14px;
-    margin-top:10px;
+.footer {
+    color: #64748b;
+    margin-top: 34px;
+    font-size: 13px;
+    line-height: 1.6;
 }
 </style>
 </head>
@@ -148,5 +95,63 @@ h1{
 
 <div class="wrap">
 
-    <div class="header">
-        <div class="badge">
+    <div class="badge">
+        🎼 Curved Sounds · Music Tools & Creative Experiments
+    </div>
+
+    <h1>Curved Sounds</h1>
+
+    <div class="subtitle">
+        Music theory tools, songwriting helpers and creative experiments.
+    </div>
+
+    <div class="beta">
+        <strong>🇫🇮 Beta-testausilmoitus</strong><br>
+        Kaikki tällä sivustolla olevat työkalut ovat tällä hetkellä beta-testivaiheessa.
+        Työkaluissa voi esiintyä virheitä, puutteita, epätarkkuuksia tai odottamatonta toimintaa.
+        Palautetta ja virheilmoituksia otetaan mielellään vastaan.
+
+        <br><br>
+
+        <strong>🇬🇧 Beta Testing Notice</strong><br>
+        All tools available on this website are currently in beta testing.
+        Bugs, inaccuracies, missing features and unexpected behavior may occur.
+        Feedback and bug reports are welcome.
+    </div>
+
+    <div class="card">
+        <h2>Songwriter's Music Theory Toolkit</h2>
+
+        <a href="songwriter-toolkit.html">
+            Open Songwriter Toolkit
+        </a>
+
+        <div class="desc">
+            Music theory, chord visualizer, guitar fretboard, barre chords,
+            scales, songwriting ideas and instrument-specific suggestions
+            for guitar, piano and bass.
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Circle of Fifths</h2>
+
+        <a href="circle-of-fifths.html">
+            Open Circle of Fifths
+        </a>
+
+        <div class="desc">
+            Quick circle of fifths helper for keys, chords, neighboring keys
+            and common songwriting progressions.
+        </div>
+    </div>
+
+    <div class="footer">
+        © 2026 Curved Sounds / Janne Kaarto<br>
+        Free Educational Edition · Redistribution only with attribution
+    </div>
+
+</div>
+
+</body>
+</html>
