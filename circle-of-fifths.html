@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Curved Sounds - Circle of Fifths</title>
+
+<style>
+:root{
+    --bg:#0f172a;
+    --card:#1e293b;
+    --card2:#111827;
+    --text:#f8fafc;
+    --muted:#94a3b8;
+    --cyan:#38bdf8;
+    --blue:#0ea5e9;
+    --green:#10b981;
+    --amber:#f59e0b;
+    --purple:#8b5cf6;
+}
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    padding:20px;
+    font-family:Arial, Helvetica, sans-serif;
+    background:radial-gradient(circle at top left,#1e3a5f,#0f172a 45%,#020617);
+    color:var(--text);
+}
+
+.wrap{
+    max-width:1100px;
+    margin:auto;
+}
+
+.top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.badge{
+    display:inline-block;
+    border:1px solid var(--cyan);
+    background:#38bdf822;
+    color:#bae6fd;
+    padding:8px 14px;
+    border-radius:999px;
+    font-weight:800;
+}
+
+.lang button{
+    margin-left:6px;
+}
+
+h1{
+    text-align:center;
+    margin:22px 0 4px;
+    font-size:38px;
+}
+
+.subtitle{
+    text-align:center;
+    color:var(--muted);
+    margin-bottom:18px;
+}
+
+button{
+    border:0;
+    padding:10px 14px;
+    border-radius:12px;
+    font-weight:800;
+    cursor:pointer;
+    background:var(--cyan);
+    color:#03141d;
+    transition:.12s;
+}
+
+button:hover{
+    filter:brightness(1.15);
+}
+
+button.active{
+    background:var(--green);
+    color:white;
+}
+
+.main{
+    display:grid;
+    grid-template-columns:1.1fr .9fr;
+    gap:18px;
+}
+
+.card{
+    background:var(--card);
+    border:1px solid #334155;
+    border-radius:18px;
+    padding:18px;
+    box-shadow:0 10px 30px #0007;
+}
+
+.circle{
+    width:620px;
+    height:620px;
+    max-width:100%;
+    position:relative;
+    margin:auto;
+}
+
+.node{
+    position:absolute;
+    width:82px;
+    height:82px;
+    border-radius:50%;
+    background:#0f172a;
+    border:2px solid var(--cyan);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    font-weight:900;
+    user-select:none;
+    transition:.12s;
+}
+
+.node:hover,
+.node.active{
+    background:var(--blue);
+    transform:scale(1.06);
+}
+
+.major{
+    font-size:18px;
+}
+
+.minor{
+    font-size:13px;
+    color:#cbd5e1;
+}
+
+.center{
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    width:210px;
+    height:210px;
+    border-radius:50%;
+    background:#020617;
+    border:1px solid #334155;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:18px;
+    color:#bae6fd;
+    font-weight:900;
+    line-height:1.35;
+}
+
+.info h2{
+    color:#bae6fd;
+    margin-top:0;
+}
+
+.section{
+    margin-top:16px;
+}
+
+.pills{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(95px,1fr));
+    gap:8px;
+}
+
+.pill{
+    background:#0f172a;
+    border:1px solid #334155;
+    padding:10px;
+    border-radius:12px;
+}
+
+.pill span{
+    display:block;
+    color:#94a3b8;
+    font-size:12px;
+}
+
+.pill b{
+    font-size:16px;
+}
+
+.progression{
+    background:#0f172a;
+    border:1px solid #334155;
+    padding:10px;
+    border-radius:12px;
+    margin-bottom:8px;
+}
+
+.progression b{
+    color:#bae6fd;
+}
+
+.copyrow{
+    margin-top:14px;
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+}
+
+.footer{
+    text-align:center;
+    margin-top:24px;
+    color:#64748b;
+    font-size:13px;
+}
+
+.toast{
+    position:fixed;
+    right:18px;
+    bottom:18px;
+    background:#075985;
+    color:white;
+    padding:10px 14px;
+    border-radius:12px;
+    display:none;
+}
+
+@media(max-width:950px){
+    .main{
+        grid-template-columns:1fr;
+    }
+
+    .circle{
+        height:520px;
+    }
+
+    .node{
+        width:68px;
+        height:68px;
+    }
+
+    .major{
+        font-size:16px;
+    }
+
+    .minor{
+        font-size:11px;
+    }
+
+    .center{
+        width:170px;
+        height:170px;
+        font-size:14px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="wrap">
+
+    <div class="top">
+        <div class="badge">🎼 Curved Sounds · Circle of Fifths</div>
+        <div class="lang">
+            <button id="fiBtn" onclick="setLang('fi')">🇫🇮 Suomi</button>
+            <button id="enBtn" onclick="setLang('en')">🇬🇧 English</button>
+        </div>
+    </div>
+
+    <h1 id="mainTitle">Kvinttiympyrä</h1>
+    <p class="subtitle" id="subtitle">
+        Nopea apu sävellajien, sointujen ja biisi-ideoiden hahmottamiseen.
+    </p>
+
+    <div class="main">
+
+        <div class="card">
+            <div id="circle" class="circle">
+                <div class="center" id="centerText">
+                    Klikkaa sävellajia<br>
+                    nähdäksesi soinnut
+                </div>
+            </div>
+        </div>
+
+        <div class="card info">
+            <h2 id="selectedTitle">Valitse sävellaji</h2>
+            <p id="selectedHelp">Klikkaa ympyrästä duuria tai mollia.</p>
+
+            <div class="section">
+                <h3 id="scaleTitle">Asteikko</h3>
+                <div id="scaleOut" class="pills"></div>
+            </div>
+
+            <div class="section">
+                <h3 id="chordsTitle">Sävellajin soinnut</h3>
+                <div id="chordsOut" class="pills"></div>
+            </div>
+
+            <div class="section">
+                <h3 id="progressionsTitle">Yleisiä sointukiertoja</h3>
+                <div id="progressionsOut"></div>
+            </div>
+
+            <div class="section">
+                <h3 id="nearbyTitle">Lähellä olevat sävellajit</h3>
+                <p id="nearbyOut"></p>
+            </div>
+
+            <div class="copyrow">
+                <button onclick="copyInfo()" id="copyBtn">Kopioi tiedot</button>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        © 2026 Curved Sounds / Janne Kaarto · Free Educational Edition
+    </div>
+
+</div>
+
+<div id="toast" class="toast"></div>
+
+<script>
+let lang = "fi";
+
+const T = {
+    fi:{
+        mainTitle:"Kvinttiympyrä",
+        subtitle:"Nopea apu sävellajien, sointujen ja biisi-ideoiden hahmottamiseen.",
+        center:"Klikkaa sävellajia<br>nähdäksesi soinnut",
+        selectKey:"Valitse sävellaji",
+        help:"Klikkaa ympyrästä duuria tai mollia.",
+        scale:"Asteikko",
+        chords:"Sävellajin soinnut",
+        progressions:"Yleisiä sointukiertoja",
+        nearby:"Lähellä olevat sävellajit",
+        copy:"Kopioi tiedot",
+        copied:"Kopioitu!",
+        major:"duuri",
+        minor:"molli",
+        relative:"Rinnakkaissävellaji",
+        neighbors:"Naapurit",
+        common:"Yleinen",
+        pop:"Pop",
+        rock:"Rock",
+        blues:"Blues",
+        ambient:"Ambient"
+    },
+    en:{
+        mainTitle:"Circle of Fifths",
+        subtitle:"A quick helper for keys, chords and songwriting ideas.",
+        center:"Click a key<br>to see chords",
+        selectKey:"Select a key",
+        help:"Click a major or minor key on the circle.",
+        scale:"Scale",
+        chords:"Chords in key",
+        progressions:"Common progressions",
+        nearby:"Nearby keys",
+        copy:"Copy information",
+        copied:"Copied!",
+        major:"major",
+        minor:"minor",
+        relative:"Relative key",
+        neighbors:"Neighbors",
+        common:"Common",
+        pop:"Pop",
+        rock:"Rock",
+        blues:"Blues",
+        ambient:"Ambient"
+    }
+};
+
+const majors = ["C","G","D","A","E","B","F#","Db","Ab","Eb","Bb","F"];
+const minors = ["Am","Em","Bm","F#m","C#m","G#m","D#m","Bbm","Fm","Cm","Gm","Dm"];
+
+const noteMap = {
+    C:0,"C#":1,Db:1,D:2,"D#":3,Eb:3,E:4,F:5,"F#":6,Gb:6,
+    G:7,"G#":8,Ab:8,A:9,"A#":10,Bb:10,B:11
+};
+
+const sharp = ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"];
+const flat  = ["C","Db","D","Eb","E","F","Gb","G","Ab","A","Bb","B"];
+
+function preferFlats(root){
+    return ["F","Bb","Eb","Ab","Db","Bbm","Fm","Cm","Gm","Dm"].includes(root);
+}
+
+function semi(note){
+    return noteMap[note];
+}
+
+function noteName(n, flats=false){
+    return (flats ? flat : sharp)[((n % 12) + 12) % 12];
+}
+
+function transpose(root, interval, flats=false){
+    return noteName(semi(root) + interval, flats);
+}
+
+function buildMajor(root){
+    const f = preferFlats(root);
+
+    const scale = [
+        root,
+        transpose(root,2,f),
+        transpose(root,4,f),
+        transpose(root,5,f),
+        transpose(root,7,f),
+        transpose(root,9,f),
+        transpose(root,11,f)
+    ];
+
+    return {
+        scale,
+        chords:[
+            ["I", scale[0]],
+            ["ii", scale[1]+"m"],
+            ["iii", scale[2]+"m"],
+            ["IV", scale[3]],
+            ["V", scale[4]],
+            ["vi", scale[5]+"m"],
+            ["vii°", scale[6]+"dim"]
+        ],
+        progressions:[
+            ["I - V - vi - IV", [scale[0],scale[4],scale[5]+"m",scale[3]]],
+            ["I - IV - V", [scale[0],scale[3],scale[4]]],
+            ["vi - IV - I - V", [scale[5]+"m",scale[3],scale[0],scale[4]]],
+            ["I - ♭VII - IV", [scale[0],transpose(root,10,f),scale[3]]]
+        ],
+        relative: scale[5]+"m"
+    };
+}
+
+function buildMinor(root){
+    const f = preferFlats(root);
+
+    const scale = [
+        root,
+        transpose(root,2,f),
+        transpose(root,3,f),
+        transpose(root,5,f),
+        transpose(root,7,f),
+        transpose(root,8,f),
+        transpose(root,10,f)
+    ];
+
+    return {
+        scale,
+        chords:[
+            ["i", scale[0]+"m"],
+            ["ii°", scale[1]+"dim"],
+            ["♭III", scale[2]],
+            ["iv", scale[3]+"m"],
+            ["v", scale[4]+"m"],
+            ["♭VI", scale[5]],
+            ["♭VII", scale[6]]
+        ],
+        progressions:[
+            ["i - ♭VI - ♭III - ♭VII", [scale[0]+"m",scale[5],scale[2],scale[6]]],
+            ["i - iv - v", [scale[0]+"m",scale[3]+"m",scale[4]+"m"]],
+            ["i - ♭VII - ♭VI - ♭VII", [scale[0]+"m",scale[6],scale[5],scale[6]]],
+            ["i - iv - ♭VII - ♭III", [scale[0]+"m",scale[3]+"m",scale[6],scale[2]]]
+        ],
+        relative: scale[2]
+    };
+}
+
+function renderCircle(){
+    const circle = document.getElementById("circle");
+
+    circle.querySelectorAll(".node").forEach(n => n.remove());
+
+    const radius = 260;
+    const center = 310;
+
+    majors.forEach((maj,index)=>{
+        const min = minors[index];
+
+        const angle = (-90 + index * 30) * Math.PI / 180;
+
+        const x = center + Math.cos(angle) * radius - 41;
+        const y = center + Math.sin(angle) * radius - 41;
+
+        const node = document.createElement("div");
+        node.className = "node";
+        node.style.left = x + "px";
+        node.style.top = y + "px";
+
+        node.innerHTML = `
+            <div class="major">${maj}</div>
+            <div class="minor">${min}</div>
+        `;
+
+        node.onclick = () => selectKey(maj,"major",index,node);
+
+        node.ondblclick = () => selectKey(min.replace("m",""),"minor",index,node);
+
+        circle.appendChild(node);
+    });
+}
+
+function selectKey(root, mode, index, node){
+    document.querySelectorAll(".node").forEach(n => n.classList.remove("active"));
+    node.classList.add("active");
+
+    const data = mode === "major" ? buildMajor(root) : buildMinor(root);
+
+    const title =
+        root + " " + (mode === "major" ? T[lang].major : T[lang].minor);
+
+    document.getElementById("selectedTitle").innerText = title;
+
+    document.getElementById("scaleOut").innerHTML =
+        data.scale.map(n => `<div class="pill"><b>${n}</b></div>`).join("");
+
+    document.getElementById("chordsOut").innerHTML =
+        data.chords.map(([r,c]) =>
+            `<div class="pill"><span>${r}</span><b>${c}</b></div>`
+        ).join("");
+
+    document.getElementById("progressionsOut").innerHTML =
+        data.progressions.map(([name,chords]) =>
+            `<div class="progression"><b>${name}</b><br>${chords.join(" - ")}</div>`
+        ).join("");
+
+    const prev = mode === "major"
+        ? majors[(index + 11) % 12] + " " + T[lang].major
+        : minors[(index + 11) % 12];
+
+    const next = mode === "major"
+        ? majors[(index + 1) % 12] + " " + T[lang].major
+        : minors[(index + 1) % 12];
+
+    document.getElementById("nearbyOut").innerHTML =
+        `<b>${T[lang].relative}:</b> ${data.relative}<br>
+         <b>${T[lang].neighbors}:</b> ${prev} / ${next}`;
+
+    window.currentInfo = {
+        title,
+        scale:data.scale,
+        chords:data.chords,
+        progressions:data.progressions,
+        relative:data.relative,
+        neighbors:[prev,next]
+    };
+}
+
+function setLang(l){
+    lang = l;
+
+    document.documentElement.lang = l;
+
+    document.getElementById("fiBtn").classList.toggle("active", l === "fi");
+    document.getElementById("enBtn").classList.toggle("active", l === "en");
+
+    document.getElementById("mainTitle").innerText = T[l].mainTitle;
+    document.getElementById("subtitle").innerText = T[l].subtitle;
+    document.getElementById("centerText").innerHTML = T[l].center;
+    document.getElementById("selectedTitle").innerText = T[l].selectKey;
+    document.getElementById("selectedHelp").innerText = T[l].help;
+    document.getElementById("scaleTitle").innerText = T[l].scale;
+    document.getElementById("chordsTitle").innerText = T[l].chords;
+    document.getElementById("progressionsTitle").innerText = T[l].progressions;
+    document.getElementById("nearbyTitle").innerText = T[l].nearby;
+    document.getElementById("copyBtn").innerText = T[l].copy;
+}
+
+function copyInfo(){
+    if(!window.currentInfo){
+        return;
+    }
+
+    const i = window.currentInfo;
+
+    const text =
+`${i.title}
+
+${T[lang].scale}:
+${i.scale.join(" - ")}
+
+${T[lang].chords}:
+${i.chords.map(x => x[0] + ": " + x[1]).join("\n")}
+
+${T[lang].progressions}:
+${i.progressions.map(x => x[0] + ": " + x[1].join(" - ")).join("\n")}
+
+${T[lang].relative}: ${i.relative}
+${T[lang].neighbors}: ${i.neighbors.join(" / ")}
+
+© Curved Sounds / Janne Kaarto`;
+
+    if(navigator.clipboard){
+        navigator.clipboard.writeText(text).then(() => toast(T[lang].copied));
+    }else{
+        const ta = document.createElement("textarea");
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand("copy");
+        ta.remove();
+        toast(T[lang].copied);
+    }
+}
+
+function toast(msg){
+    const t = document.getElementById("toast");
+    t.innerText = msg;
+    t.style.display = "block";
+    setTimeout(()=> t.style.display = "none", 1600);
+}
+
+renderCircle();
+setLang("fi");
+</script>
+
+</body>
+</html>
