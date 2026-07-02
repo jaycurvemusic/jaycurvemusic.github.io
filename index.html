@@ -103,15 +103,21 @@ h1{font-size:46px;margin:22px 0 8px;letter-spacing:-1px;}
         Bugs, inaccuracies, missing features and unexpected behavior may occur.
     </div>
 
-    <div class="feedback">
-        <strong>🇫🇮 Palaute</strong><br>
-        Voit lähettää palautetta sivustosta, työkaluista, virheistä tai kehitysideoista osoitteeseen:<br>
-        <a href="mailto:jaycurve.music@gmail.com?subject=Curved%20Sounds%20feedback">jaycurve.music@gmail.com</a>
-        <br><br>
-        <strong>🇬🇧 Feedback</strong><br>
-        You can send feedback, bug reports or feature ideas about this website and its tools to:<br>
-        <a href="mailto:jaycurve.music@gmail.com?subject=Curved%20Sounds%20feedback">jaycurve.music@gmail.com</a>
-    </div>
+  <div class="feedback">
+    <strong>🇫🇮 Palaute</strong><br>
+    Voit lähettää palautetta sivustosta, työkaluista, virheistä tai kehitysideoista.<br>
+    <button class="tool-link" onclick="sendFeedback()" style="margin-top:10px;border:none;cursor:pointer;">
+        📧 Lähetä palautetta
+    </button>
+
+    <br><br>
+
+    <strong>🇬🇧 Feedback</strong><br>
+    You can send feedback, bug reports or feature ideas about this website and its tools.<br>
+    <button class="tool-link" onclick="sendFeedback()" style="margin-top:10px;border:none;cursor:pointer;">
+        📧 Send Feedback
+    </button>
+</div>
 
     <div class="support">
         <div class="support-inner">
@@ -210,5 +216,16 @@ h1{font-size:46px;margin:22px 0 8px;letter-spacing:-1px;}
 
     <div class="footer">© 2026 Curved Sounds / Janne Kaarto<br>Free Educational Edition · Tools are provided as experimental beta versions.</div>
 </div>
+    <script>
+function sendFeedback() {
+    const user = "jaycurve.music";
+    const domain = "gmail.com";
+    const subject = "Curved Sounds feedback";
+
+    window.location.href =
+        "mailto:" + user + "@" + domain +
+        "?subject=" + encodeURIComponent(subject);
+}
+</script>
 </body>
 </html>
