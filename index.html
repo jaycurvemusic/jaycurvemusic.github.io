@@ -27,14 +27,14 @@
 
 body{
     margin:0;
-    padding:36px 18px;
+    padding:34px 18px;
     font-family:Arial, Helvetica, sans-serif;
     background:radial-gradient(circle at top left,var(--bg1),var(--bg2) 46%,var(--bg3));
     color:var(--text);
 }
 
 .wrap{
-    max-width:1180px;
+    max-width:980px;
     margin:auto;
 }
 
@@ -46,21 +46,24 @@ body{
     padding:8px 14px;
     border-radius:999px;
     font-weight:900;
+    font-size:13px;
 }
 
 h1{
-    font-size:48px;
+    font-size:46px;
     margin:22px 0 8px;
     letter-spacing:-1px;
 }
 
 .subtitle{
     color:var(--muted);
-    font-size:18px;
+    font-size:17px;
     max-width:850px;
     line-height:1.55;
     margin-bottom:24px;
 }
+
+/* Notice boxes */
 
 .beta{
     background:#4a3300;
@@ -87,6 +90,8 @@ h1{
     font-weight:900;
 }
 
+/* Support box */
+
 .support{
     background:#111827dd;
     border:1px solid #facc15;
@@ -94,10 +99,18 @@ h1{
     padding:22px;
     border-radius:20px;
     margin:24px 0 34px;
-    display:grid;
-    grid-template-columns:1.4fr 220px;
-    gap:22px;
+}
+
+.support-inner{
+    display:flex;
+    gap:24px;
     align-items:center;
+    justify-content:space-between;
+}
+
+.support-text{
+    flex:1;
+    min-width:0;
 }
 
 .support h2{
@@ -128,10 +141,11 @@ h1{
 
 .qrbox{
     text-align:center;
+    flex:0 0 190px;
 }
 
 .qrbox img{
-    max-width:210px;
+    max-width:180px;
     width:100%;
     border-radius:18px;
     background:white;
@@ -145,23 +159,26 @@ h1{
     font-size:13px;
 }
 
+/* Sections */
+
 .section-title{
-    margin:34px 0 14px;
+    margin:36px 0 10px;
     color:#e0f7ff;
     font-size:25px;
 }
 
 .section-desc{
     color:var(--muted);
-    margin-bottom:14px;
+    margin-bottom:16px;
     line-height:1.5;
 }
 
-.grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+/* Simple vertical list */
+
+.tools-list{
+    display:flex;
+    flex-direction:column;
     gap:18px;
-    align-items:stretch;
 }
 
 .card{
@@ -170,14 +187,12 @@ h1{
     border-radius:20px;
     padding:22px;
     box-shadow:0 12px 30px #0007;
-    display:flex;
-    flex-direction:column;
 }
 
 .card h3{
     margin:0 0 12px;
     color:#bae6fd;
-    font-size:21px;
+    font-size:22px;
 }
 
 .card p{
@@ -188,14 +203,12 @@ h1{
 
 .tool-link{
     display:inline-block;
-    align-self:flex-start;
     color:#04131d;
     background:var(--cyan);
     text-decoration:none;
     padding:11px 14px;
     border-radius:14px;
     font-weight:900;
-    margin-top:auto;
 }
 
 .tool-link:hover{
@@ -227,7 +240,7 @@ h1{
     text-align:center;
 }
 
-@media(max-width:800px){
+@media(max-width:760px){
     h1{
         font-size:36px;
     }
@@ -236,12 +249,18 @@ h1{
         padding:24px 14px;
     }
 
-    .support{
-        grid-template-columns:1fr;
+    .support-inner{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .qrbox{
+        width:100%;
+        flex:auto;
     }
 
     .qrbox img{
-        max-width:180px;
+        max-width:170px;
     }
 }
 </style>
@@ -293,171 +312,27 @@ h1{
     </div>
 
     <div class="support">
-        <div>
-            <h2>☕ Support Curved Sounds</h2>
+        <div class="support-inner">
 
-            <p>
-                Curved Sounds tools are free to use. If these tools help you learn,
-                create music or find new ideas, you can support future development
-                by buying me a coffee.
-            </p>
+            <div class="support-text">
+                <h2>☕ Support Curved Sounds</h2>
 
-            <p>
-                Your support helps keep these music theory, songwriting and MIDI tools
-                freely available for musicians, producers and creative learners.
-            </p>
+                <p>
+                    Curved Sounds tools are free to use. If these tools help you learn,
+                    create music or find new ideas, you can support future development
+                    by buying me a coffee.
+                </p>
 
-            <a class="coffee-btn" href="https://buymeacoffee.com/liwgdnxqyw" target="_blank" rel="noopener noreferrer">
-                ☕ Buy Me a Coffee
-            </a>
-        </div>
+                <p>
+                    Your support helps keep these music theory, songwriting and MIDI tools
+                    freely available for musicians, producers and creative learners.
+                </p>
 
-        <div class="qrbox">
-            <a href="https://buymeacoffee.com/liwgdnxqyw" target="_blank" rel="noopener noreferrer">
-                <img src="bmc_qr.png" alt="Buy Me a Coffee QR code">
-            </a>
-            <div>Scan to support Curved Sounds</div>
-        </div>
-    </div>
-
-    <h2 class="section-title">🎛 MIDI & Production Tools</h2>
-    <div class="section-desc">
-        Tools for generating MIDI sketches, chord progressions, basslines, arpeggios, drums and melodies for DAW use.
-    </div>
-
-    <div class="grid">
-
-        <div class="card">
-            <h3>🎛 Multi MIDI Generator</h3>
-            <div class="tagrow">
-                <span class="tag">Chords</span>
-                <span class="tag">Bass</span>
-                <span class="tag">Arp</span>
-                <span class="tag">Lead</span>
-                <span class="tag">Drums</span>
+                <a class="coffee-btn" href="https://buymeacoffee.com/liwgdnxqyw" target="_blank" rel="noopener noreferrer">
+                    ☕ Buy Me a Coffee
+                </a>
             </div>
-            <p>
-                Generate genre-based MIDI ideas with separate chords, bass, arp, lead/melody and drum tracks.
-                Export full MIDI or individual lanes.
-            </p>
-            <a class="tool-link" href="multi_midi_generator.html">Open Multi MIDI Generator</a>
-        </div>
 
-        <div class="card">
-            <h3>🎛 MIDI Chord Generator Tutor</h3>
-            <div class="tagrow">
-                <span class="tag">MIDI</span>
-                <span class="tag">Chords</span>
-                <span class="tag">Drums</span>
-                <span class="tag">Learning</span>
-            </div>
-            <p>
-                Learn MIDI basics and generate 4 or 8 bar MIDI chord and drum patterns.
-                Suitable for quick DAW sketching.
-            </p>
-            <a class="tool-link" href="midi_chord_generator_tutor.html">Open MIDI Chord Generator</a>
-     usic theory and songwriting tools for chords, scales, keys and harmonic ideas.
-    </div>
-
-    <div class="grid">
-
-        <div class="card">
-            <h3>🎼 Songwriter Toolkit</h3>
-            <div class="tagrow">
-                <span class="tag">Songwriting</span>
-                <span class="tag">Chords</span>
-                <span class="tag">Scales</span>
-                <span class="tag">Ideas</span>
-            </div>
-            <p>
-                Music theory, songwriting ideas, chord suggestions, scale helpers and creative composition support.
-            </p>
-            <a class="tool-link" href="songwriter-toolkit.html">Open Songwriter Toolkit</a>
-        </div>
-
-        <div class="card">
-            <h3>⭕ Circle of Fifths</h3>
-            <div class="tagrow">
-                <span class="tag">Keys</span>
-                <span class="tag">Chords</span>
-                <span class="tag">Theory</span>
-            </div>
-            <p>
-                Quick circle of fifths helper for keys, neighboring keys, chords and common songwriting progressions.
-            </p>
-            <a class="tool-link" href="circle-of-fifths.html">Open Circle of Fifths</a>
-        </div>
-
-        <div class="card">
-            <h3>🎹 Piano Theory Tutor</h3>
-            <div class="tagrow">
-                <span class="tag">Piano</span>
-                <span class="tag">Scales</span>
-                <span class="tag">Chords</span>
-            </div>
-            <p>
-                Keyboard helper for scales, chords, intervals, scale degrees and practice ideas.
-            </p>
-            piano_theory_tutor.htmlOpen Piano Theory Tutor</a>
-        </div>
-
-    </div>
-
-    <h2 class="section-title">🎸 Guitar & Bass Tools</h2>
-    <div class="section-desc">
-        Fretboard, tuning and instrument-specific theory tools for guitar and bass.
-    </div>
-
-    <div class="grid">
-
-        <div class="card">
-            <h3>🎸 Guitar Tuner</h3>
-            <div class="tagrow">
-                <span class="tag">Microphone</span>
-                <span class="tag">Tuning</span>
-                <span class="tag">Guitar</span>
-            </div>
-            <p>
-                Browser-based guitar tuner using the microphone. Includes visual tuning feedback and standard tuning.
-            </p>
-            guitar_tuner.htmlOpen Guitar Tuner</a>
-        </div>
-
-        <div class="card">
-            <h3>🎸 Guitar Note Explorer</h3>
-            <div class="tagrow">
-                <span class="tag">Fretboard</span>
-                <span class="tag">Notes</span>
-                <span class="tag">Scales</span>
-            </div>
-            <p>
-                Explore guitar fretboard notes, scales, chord tones and scale degrees visually.
-            </p>
-            guitar_note_explorer.htmlOpen Guitar Note Explorer</a>
-        </div>
-
-        <div class="card">
-            <h3>🎸 Bass Theory Tutor</h3>
-            <div class="tagrow">
-                <span class="tag">Bass</span>
-                <span class="tag">Root</span>
-                <span class="tag">Fifth</span>
-                <span class="tag">Groove</span>
-            </div>
-            <p>
-                Bass theory helper for roots, fifths, octaves, scales, bassline thinking and groove ideas.
-            </p>
-            bass_theory_tutor.htmlOpen Bass Theory Tutor</a>
-        </div>
-
-    </div>
-
-    <div class="footer">
-        © 2026 Curved Sounds / Janne Kaarto<br>
-        Free Educational Edition · Tools are provided as experimental beta versions.
-    </div>
-
-</div>
-
-</body>
-</html>
+            <div class="qrbox">
+                <a href="https://buymeacoffee.com/liwgdnxqyw" target="_blank" rel="noopener noreferrer">
+                    <img src="bmc_qr.png" alt="Buy Me a Coffee QR code">
